@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = JSON.parse(localStorage.getItem('students')) || [];
 
 const StudentSlice = createSlice({
     name: 'StudentSlice',
@@ -8,6 +8,7 @@ const StudentSlice = createSlice({
     reducers: {
         addStudent: (state, { payload }) => {
             state.push(payload);
+            localStorage.setItem('students', JSON.stringify(state));
         },
     }
 })

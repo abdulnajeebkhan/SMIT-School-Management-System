@@ -22,7 +22,7 @@ const Students = () => {
                 </thead>
                 <tbody>
                     {studentData.map((student, idx) => (
-                        <tr>
+                        <tr key={idx}>
                             <th>{idx + 1}</th>
                             <td>{`${student.firstName} ${student.lastName}`}</td>
                             <td>{student.fatherName}</td>
@@ -30,7 +30,6 @@ const Students = () => {
                             <td>{student.gender}</td>
                             <td>{student.phoneNumber}</td>
                             <td>{student.address}</td>
-
                         </tr>
                     ))}
                 </tbody>
