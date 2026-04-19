@@ -1,6 +1,6 @@
 
 
-import { Outlet } from "react-router";
+import { Link, Links, Outlet } from "react-router";
 
 const Layout = () => {
     return (
@@ -24,13 +24,35 @@ const Layout = () => {
                 <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
                     <ul className="menu w-full grow">
                         <li>
-                            <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Homepage">
+                            <Link to="/dashboard" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Homepage">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
                                 <span className="is-drawer-close:hidden">Homepage</span>
-                            </button>
+                            </Link>
                         </li>
+
                         <li>
-                            <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Add Teacher">
+                            <Link to="/addstudent" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Add Student">
+                                {/* Add Student icon */}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    strokeLinejoin="round" strokeLinecap="round" strokeWidth="2"
+                                    fill="none" stroke="currentColor"
+                                    className="my-1.5 inline-block size-4">
+
+                                    {/* User */}
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M3 21c0-4 3-7 6-7"></path>
+
+                                    {/* Plus */}
+                                    <path d="M16 11v6"></path>
+                                    <path d="M13 14h6"></path>
+                                </svg>
+
+                                <span className="is-drawer-close:hidden">Add Student</span>
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link to="/addteacher" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Add Teacher">
                                 {/* Add Teacher icon */}
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                     strokeLinejoin="round" strokeLinecap="round" strokeWidth="2"
@@ -49,33 +71,54 @@ const Layout = () => {
                                 </svg>
 
                                 <span className="is-drawer-close:hidden">Add Teacher</span>
-                            </button>
+                            </Link>
                         </li>
+
                         <li>
-                            <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Add Student">
-                                {/* Add Student icon */}
+                            <Link to="/subjects" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Subjects">
+
+                                {/* Subject (Book) icon */}
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                     strokeLinejoin="round" strokeLinecap="round" strokeWidth="2"
                                     fill="none" stroke="currentColor"
                                     className="my-1.5 inline-block size-4">
 
-                                    {/* User */}
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M3 21c0-4 3-7 6-7"></path>
+                                    {/* Book */}
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 0 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"></path>
 
-                                    {/* Plus */}
-                                    <path d="M16 11v6"></path>
-                                    <path d="M13 14h6"></path>
                                 </svg>
 
-                                <span className="is-drawer-close:hidden">Add Student</span>
-                            </button>
+                                <span className="is-drawer-close:hidden">Subjects</span>
+                            </Link>
                         </li>
+
                         <li>
-                            <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Settings">
+                            <Link to="/students" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Students">
+
+                                {/* Group (Multiple Students) icon */}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    strokeLinejoin="round" strokeLinecap="round" strokeWidth="2"
+                                    fill="none" stroke="currentColor"
+                                    className="my-1.5 inline-block size-4">
+
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <circle cx="17" cy="7" r="3"></circle>
+
+                                    <path d="M2 21c0-4 3-7 7-7"></path>
+                                    <path d="M14 21c0-3 2-5 5-5"></path>
+
+                                </svg>
+
+                                <span className="is-drawer-close:hidden">Students</span>
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Settings">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
                                 <span className="is-drawer-close:hidden">Settings</span>
-                            </button>
+                            </Link>
                         </li>
                     </ul>
                 </div>
