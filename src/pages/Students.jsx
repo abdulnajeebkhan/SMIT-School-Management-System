@@ -1,9 +1,22 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteStudent } from '../redux/features/StudentSlice';
+import { useNavigate } from 'react-router';
 
 const Students = () => {
 
-    const studentData = useSelector((state) => state.StudentReducer)
+    const studentData = useSelector((state) => state.StudentReducer);
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const deleteList = (student) => {
+        dispatch(deleteStudent(student))
+    }
+
+    const editList = (student) => {
+        navigate('/addstudent')
+        // dispatch(deleteStudent(student))
+    }
 
 
     return (
@@ -18,6 +31,7 @@ const Students = () => {
                         <th>Gender</th>
                         <th>Phone number</th>
                         <th>Address</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +44,7 @@ const Students = () => {
                             <td>{student.gender}</td>
                             <td>{student.phoneNumber}</td>
                             <td>{student.address}</td>
+                            <td className='flex items-center gap-4'> <i onClick={() => editList(student)} className="ri-pencil-fill py-1 px-2 rounded bg-blue-500 text-white cursor-pointer"></i> <i onClick={() => deleteList(student)} className="ri-delete-bin-fill py-1 px-2 rounded bg-red-500 text-white cursor-pointer"></i> </td>
                         </tr>
                     ))}
                 </tbody>
